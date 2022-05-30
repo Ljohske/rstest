@@ -3,7 +3,7 @@ use rand::Rng;
 fn main() {
     println!("Guess the number!");
     let generated_secret_number: u32 = random_num_gen();
-    println!("The secrent number is {}", generated_secret_number);
+    // println!("The secrent number is {}", generated_secret_number);
 
     loop {
         println!("Please input your guess.");
@@ -18,7 +18,7 @@ fn main() {
         // parse() with turbofish syntax; it parses the input to u32
         let guess = match guess.trim().parse::<u32>() {
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => continue, // _ is a catch-all value
         };
 
         println!("You guessed: {}", guess);
