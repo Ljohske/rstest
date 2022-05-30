@@ -14,8 +14,9 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        // trim spaces & newline char, and shadow guess (&str) to u32
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        // trim() trims spaces & newline char
+        // parse() with turbofish syntax; it parses the input to u32
+        let guess = guess.trim().parse::<u32>().expect("Please type a number!");
 
         println!("You guessed: {}", guess);
 
@@ -23,7 +24,10 @@ fn main() {
         match guess.cmp(&generated_secret_number) {
             std::cmp::Ordering::Less => println!("Too small"),
             std::cmp::Ordering::Greater => println!("Too big"),
-            std::cmp::Ordering::Equal => println!("You win!"),
+            std::cmp::Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
         }
     }
 }
