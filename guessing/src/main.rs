@@ -16,7 +16,10 @@ fn main() {
 
         // trim() trims spaces & newline char
         // parse() with turbofish syntax; it parses the input to u32
-        let guess = guess.trim().parse::<u32>().expect("Please type a number!");
+        let guess = match guess.trim().parse::<u32>() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You guessed: {}", guess);
 
