@@ -10,3 +10,4 @@
 
 ## Naming convention for constants
 `CAPITAL_LETTERS: type = value;`
+
