@@ -1,9 +1,7 @@
 fn main() {
-    // constants are valid for the entire time the programme runs
-    // within the scope they were declared in.
-    const MAX_POINTS: u32 = 100_000;
-    let mut x = 5;
+    let x = 5;
     println!("The value of x is: {}", x);
-    x = 6;
+    // x is shadowed by x + 6
+    let x = x + 6;
     println!("The value of x is: {}", x);
 }
